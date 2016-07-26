@@ -31,6 +31,14 @@ public class StandardJsonResponseBuilder {
 		this.data = data;
 	}
 
+	public Errors Errors() {
+		return errors;
+	}
+
+	public void setErrors(final Object errors) {
+		this.errors = (Errors) errors;
+	}
+
 	public void setPayload(final Object responsePayload) {
 		data.setPayload(responsePayload);
 
@@ -45,8 +53,10 @@ public class StandardJsonResponseBuilder {
 	public static StandardJsonResponseBuilder buildResponse(final Object payload) {
 
 		final StandardJsonResponseBuilder standardJsonResponseBuilder = new StandardJsonResponseBuilder();
+
 		standardJsonResponseBuilder.setMetadata();
 		standardJsonResponseBuilder.setPayload(payload);
+
 		return standardJsonResponseBuilder;
 
 	}

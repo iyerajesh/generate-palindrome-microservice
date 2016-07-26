@@ -1,18 +1,26 @@
 package com.zillion.microservices.palindrome.web.util.json;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.validation.FieldError;
+/*
+ * @author Rajesh Iyer
+ */
 
 public class Errors {
 
-	private List<FieldError> fieldErrors;
+	private List<Error> fieldErrors = new ArrayList<Error>();
 
-	public List<FieldError> getFieldErrors() {
+	public void addFieldError(String errorField, String errorMessage) {
+		Error error = new Error(errorField, errorMessage);
+		fieldErrors.add(error);
+	}
+
+	public List<Error> getFieldErrors() {
 		return fieldErrors;
 	}
 
-	public void setFieldErrors(final List<FieldError> fieldErrors) {
+	public void setFieldErrors(List<Error> fieldErrors) {
 		this.fieldErrors = fieldErrors;
 	}
 

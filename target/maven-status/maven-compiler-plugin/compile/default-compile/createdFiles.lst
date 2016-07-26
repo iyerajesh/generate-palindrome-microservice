@@ -1,0 +1,17 @@
+com\zillion\microservices\palindrome\web\controller\GeneratePalindromeController.class
+com\zillion\microservices\palindrome\web\util\json\Metadata.class
+com\zillion\microservices\palindrome\web\util\RestPreconditions.class
+com\zillion\microservices\palindrome\web\util\json\Errors.class
+com\zillion\microservices\palindrome\web\util\json\StandardJsonResponseBuilder.class
+com\zillion\microservices\palindrome\web\util\json\Error.class
+com\zillion\microservices\palindrome\service\GetNasaPatentNamesService.class
+com\zillion\microservices\palindrome\web\util\json\Data.class
+com\zillion\microservices\palindrome\config\WebAppInitializer.class
+com\zillion\microservices\security\filters\CORSFilter.class
+com\zillion\microservices\palindrome\config\ConverterConfig.class
+com\zillion\microservices\palindrome\exception\ValidationException.class
+com\zillion\microservices\palindrome\config\SecurityConfig.class
+com\zillion\microservices\palindrome\config\AppConfig.class
+com\zillion\microservices\palindrome\model\Palindrome.class
+com\zillion\microservices\palindrome\service\GeneratePalindromeService$1.class
+com\zillion\microservices\palindrome\service\GeneratePalindromeService.class

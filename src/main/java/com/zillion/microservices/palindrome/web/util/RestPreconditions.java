@@ -1,8 +1,7 @@
 package com.zillion.microservices.palindrome.web.util;
 
 import org.springframework.http.HttpStatus;
-
-import com.zillion.microservices.palindrome.exception.ResourceNotFoundException;
+import com.zillion.microservices.palindrome.exception.ValidationException;
 
 /**
  * Simple static methods to be called at the start of your own methods to verify
@@ -22,13 +21,16 @@ public final class RestPreconditions {
 	 *
 	 * @param expression
 	 *            has value true if found, otherwise false
-	 * @throws ResourceNotFoundException
+	 * @throws ValidationException
 	 *             if expression is false, means value not found.
 	 */
-	public static void checkFound(final boolean expression) {
-		if (!expression) {
-			throw new ResourceNotFoundException();
-		}
+	public static void checkLimit(final int limit) throws ValidationException {
+
+		if (limit < 1)
+			throw new ValidationException("limit", "limit cannot be less than 1!");
+
+		if (limit > 5)
+			throw new ValidationException("limit", "limit cannot be more than 5!");
 	}
 
 	/**
@@ -36,15 +38,16 @@ public final class RestPreconditions {
 	 *
 	 * @param expression
 	 *            has value true if found, otherwise false
-	 * @throws ResourceNotFoundException
+	 * @throws ValidationException
 	 *             if expression is false, means value not found.
 	 */
-	public static <T> T checkFound(final T resource) {
-		if (resource == null) {
-			throw new ResourceNotFoundException();
+	public static String checkField(final String field, final String value) throws ValidationException {
+
+		if (value == null || value.equals("")) {
+			throw new ValidationException(field, field + " cannot be empty!");
 		}
 
-		return resource;
+		return field;
 	}
 
 }
