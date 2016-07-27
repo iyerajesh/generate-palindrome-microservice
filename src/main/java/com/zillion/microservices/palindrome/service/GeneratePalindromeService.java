@@ -41,6 +41,16 @@ public class GeneratePalindromeService {
 	@Autowired
 	private Environment env;
 
+	/*
+	 * Processes the palindromes from a list of full names from the NASA patent
+	 * service.
+	 * 
+	 * @param fullnames A list containing all of the full names from the NASA
+	 * patent service
+	 * 
+	 * @return A list of Palindrome objects, which contain the names for which
+	 * the palindromes were processed, and the count for each of them.
+	 */
 	public List<Palindrome> processPalindromes(List<String> fullnames) throws Exception {
 
 		List<Palindrome> palindromeList = new ArrayList<Palindrome>();
@@ -60,10 +70,6 @@ public class GeneratePalindromeService {
 							original.length());
 
 					pSet.add(palindromeStr);
-
-					logger.debug("Generated palindrome string:" + palindromeStr);
-					logger.debug("length of the generated palindrome string:" + palindromeStr.length());
-
 				}
 			}
 			logger.debug("Total number of palindrome strings generated for:" + fullnames.get(x) + ":" + pSet.size());
@@ -99,15 +105,12 @@ public class GeneratePalindromeService {
 				l = 0;
 				ch = pChars[l];
 			}
-			logger.debug("Character generated for i and j:" + k + ":" + l + "--" + ch);
 			random.append(ch);
 		}
 
 		logger.debug("palindrome formation before the reverse append:" + random.toString());
 
 		for (int k = size / 2 - 1; k >= 0; k--) {
-
-			logger.debug("Character at:" + random.charAt(k));
 			random.append(random.charAt(k));
 		}
 

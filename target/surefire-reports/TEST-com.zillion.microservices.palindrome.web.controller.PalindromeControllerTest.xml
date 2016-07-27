@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.zillion.microservices.palindrome.web.controller.PalindromeControllerTest" time="3.118" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.zillion.microservices.palindrome.web.controller.PalindromeControllerTest" time="6.194" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_92\jre\bin"/>
     <property name="java.vm.version" value="25.92-b14"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\ag216\workspace.new1\check-palindrome-microservice"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\ag216\workspace.new1\generate-palindrome-microservice"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\ag216\workspace.new1\check-palindrome-microservice"/>
+    <property name="user.dir" value="C:\Users\ag216\workspace.new1\generate-palindrome-microservice"/>
     <property name="java.runtime.version" value="1.8.0_92-b14"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_92\jre\lib\endorsed"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\Users\ag216\workspace.new1\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf4435291146885576176.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\ag216\workspace.new1\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf2423682578770828063.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_92\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Java8/bin/server;C:/Java8/bin;C:/Java8/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\1E\NomadBranch\;C:\Program Files (x86)\BlueZone\;C:\PROGRA~1\IBM\SQLLIB\BIN;C:\PROGRA~1\IBM\SQLLIB\FUNCTION;C:\Program Files\Microsoft Host Integration Server 2009\system;C:\Program Files\Microsoft Host Integration Server 2009\SysWOW64;C:\Program Files\Dell\Dell Data Protection\Encryption\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Skype\Phone\;C:\nodejs\;C:\Program Files (x86)\IBM\WebSphere MQ\bin64;C:\Program Files (x86)\IBM\WebSphere MQ\bin;C:\Program Files (x86)\IBM\WebSphere MQ\tools\c\samples\bin;C:\Users\ag216\AppData\Local\atom\bin;C:\Users\ag216\AppData\Roaming\npm;C:\Microsoft VS Code\bin;C:\WINDOWS\system32;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -52,7 +52,7 @@
     <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_92\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_92\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_92\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_92\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_92\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_92\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_92\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_92\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_92\jre\classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="maven.home" value="C:\Users\ag216\workspace.new1\check-palindrome-microservice\EMBEDDED"/>
+    <property name="maven.home" value="C:\Users\ag216\workspace.new1\generate-palindrome-microservice\EMBEDDED"/>
     <property name="file.separator" value="\"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -60,5 +60,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="verifyClaimsNotesWithId" classname="com.zillion.microservices.palindrome.web.controller.PalindromeControllerTest" time="0.109"/>
+  <testcase name="verifySuccessfulTransaction" classname="com.zillion.microservices.palindrome.web.controller.PalindromeControllerTest" time="1.988"/>
+  <testcase name="checkLimitValidationForLessThan1" classname="com.zillion.microservices.palindrome.web.controller.PalindromeControllerTest" time="0.024"/>
+  <testcase name="verifyPalindromeAPICallWithId" classname="com.zillion.microservices.palindrome.web.controller.PalindromeControllerTest" time="0.018"/>
+  <testcase name="submitPostRequest_ShouldReturnMethodNotSupported" classname="com.zillion.microservices.palindrome.web.controller.PalindromeControllerTest" time="0.018"/>
+  <testcase name="checkLimitValidationForMoreThan6" classname="com.zillion.microservices.palindrome.web.controller.PalindromeControllerTest" time="0.076"/>
+  <testcase name="verifyFailedTransaction" classname="com.zillion.microservices.palindrome.web.controller.PalindromeControllerTest" time="0.012"/>
 </testsuite>

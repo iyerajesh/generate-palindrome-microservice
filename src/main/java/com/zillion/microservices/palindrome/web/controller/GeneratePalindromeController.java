@@ -1,6 +1,5 @@
 package com.zillion.microservices.palindrome.web.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -9,11 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,6 +37,9 @@ public class GeneratePalindromeController {
 	@Autowired
 	private GetNasaPatentNamesService getNasaPatentNamesService;
 
+	@Autowired
+	private RestPreconditions preconditions;
+
 	@RequestMapping(value = "/palindromes", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	public StandardJsonResponseBuilder generatePalindrome(@Valid @RequestParam(value = "search") final String search,
@@ -47,8 +47,8 @@ public class GeneratePalindromeController {
 
 		try {
 
-			RestPreconditions.checkField("search", search);
-			RestPreconditions.checkLimit(limit);
+			preconditions.checkField("search", search);
+			preconditions.checkLimit(limit);
 
 			logger.debug(
 					"Calling the generate palindrome service with searchString:" + search + ": with limit:" + limit);
@@ -56,11 +56,10 @@ public class GeneratePalindromeController {
 			List<String> fullnames = getNasaPatentNamesService.getNASAPatentPortfolio(search, limit);
 			List<Palindrome> palindromeList = generatePalindromeService.processPalindromes(fullnames);
 
-			return StandardJsonResponseBuilder.buildResponse(palindromeList);
+			return StandardJsonResponseBuilder.buildResponse(true, palindromeList);
 
 		} catch (ValidationException ex) {
-			logger.debug("Inside the exception block");
-			return StandardJsonResponseBuilder.buildResponse(handleBadRequest(ex));
+			return StandardJsonResponseBuilder.buildResponse(false, handleBadRequest(ex));
 		}
 	}
 
@@ -68,8 +67,6 @@ public class GeneratePalindromeController {
 
 		Errors errors = new Errors();
 		errors.addFieldError(ex.getErrorField(), ex.getErrorMessage());
-
-		logger.debug("adding error:" + ex.getErrorField() + ":" + ex.getErrorMessage());
 
 		return errors;
 	}

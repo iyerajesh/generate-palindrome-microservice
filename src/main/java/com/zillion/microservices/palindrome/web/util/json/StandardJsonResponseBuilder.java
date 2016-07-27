@@ -44,17 +44,18 @@ public class StandardJsonResponseBuilder {
 
 	}
 
-	public void setMetadata() {
+	public void setMetadata(boolean success) {
+
 		metadata.setCountry("US");
 		metadata.setLanguage("en");
-		metadata.setSuccess(true);
+		metadata.setSuccess(success);
 	}
 
-	public static StandardJsonResponseBuilder buildResponse(final Object payload) {
+	public static StandardJsonResponseBuilder buildResponse(boolean success, final Object payload) {
 
 		final StandardJsonResponseBuilder standardJsonResponseBuilder = new StandardJsonResponseBuilder();
 
-		standardJsonResponseBuilder.setMetadata();
+		standardJsonResponseBuilder.setMetadata(success);
 		standardJsonResponseBuilder.setPayload(payload);
 
 		return standardJsonResponseBuilder;

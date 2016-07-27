@@ -39,16 +39,26 @@ public class GetNasaPatentNamesService {
 	@Autowired
 	private Environment env;
 
+	/*
+	 * Get the first names and the last names from the NASA patent REST API
+	 * 
+	 * @param searchString The search string to search the patent API with.
+	 * 
+	 * @param limit The limit of results to return
+	 * 
+	 * @return List<String> List containing all the full names of the patent
+	 * creators.
+	 */
+
 	public List<String> getNASAPatentPortfolio(String searchString, int limit) {
 
 		RestTemplate restTemplate = new RestTemplate();
 
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("name", searchString);
-		params.put("limit", limit + "");
+		params.put("limit", Integer.toString(limit));
 
 		String result = restTemplate.getForObject(env.getProperty("nasa.patent.url"), String.class, params);
-		logger.debug("NASA patent names:" + result);
 
 		List<String> fnames = JsonPath.read(result, "$.results[*].innovator[*].fname");
 		logger.debug("First names from the patent list:" + fnames);

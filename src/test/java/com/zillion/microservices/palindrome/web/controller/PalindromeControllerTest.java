@@ -24,7 +24,6 @@ import org.springframework.web.context.WebApplicationContext;
 import com.zillion.microservices.palindrome.config.AppConfig;
 import com.zillion.microservices.palindrome.config.SecurityConfig;
 
-
 /**
  * @author Rajesh Iyer
  */
@@ -49,34 +48,48 @@ public class PalindromeControllerTest {
 				.build();
 	}
 
-	
 	@Test
-	public void verifyClaimsNotesWithId() throws Exception {
-		mockMvc.perform(get("/claims/v1/notes/3496")).andExpect(status().isNotFound());
+	public void verifyPalindromeAPICallWithId() throws Exception {
+		mockMvc.perform(get("/palindrome/v1/notes/3496")).andExpect(status().isNotFound());
 	}
 
-	/* commenting the rest the test cases
 	@Test
 	public void submitPostRequest_ShouldReturnMethodNotSupported() throws Exception {
-		mockMvc.perform(post("/claims/v1/notes/3496")).andExpect(status().isMethodNotAllowed());
+		mockMvc.perform(post("/palindromes?search=electricity&limit=2")).andExpect(status().isMethodNotAllowed());
 	}
 
 	@Test
-	public void getClaimNotesResponseAndCheckForSuccessStatus() throws Exception {
+	public void verifySuccessfulTransaction() throws Exception {
 
-		mockMvc.perform(get("/claims/v1/notes/3496")).andExpect(jsonPath("$.metadata.success", is(true)))
-		.andExpect(status().isOk());
+		mockMvc.perform(get("/palindromes?search=electricity&limit=2"))
+				.andExpect(jsonPath("$.metadata.success", is(true))).andExpect(status().isOk());
 
 	}
 
 	@Test
-	public void getClaimsNotesAndVerifyId() throws Exception {
+	public void verifyFailedTransaction() throws Exception {
 
-		mockMvc.perform(get("/claims/v1/notes/3496")).andExpect(jsonPath("$.data.payload.id", is(3496)))
-		.andExpect(status().isOk());
+		mockMvc.perform(get("/palindromes?search=&limit=2")).andExpect(jsonPath("$.metadata.success", is(false)))
+				.andExpect(status().isOk());
 
 	}
-	
-	*/
+
+	@Test
+	public void checkLimitValidationForLessThan1() throws Exception {
+
+		mockMvc.perform(get("/palindromes?search=electricity&limit=0"))
+				.andExpect(jsonPath("$.data.payload.fieldErrors[0].errorField", is("limit")))
+				.andExpect(status().isOk());
+
+	}
+
+	@Test
+	public void checkLimitValidationForMoreThan6() throws Exception {
+
+		mockMvc.perform(get("/palindromes?search=electricity&limit=6"))
+				.andExpect(jsonPath("$.data.payload.fieldErrors[0].errorField", is("limit")))
+				.andExpect(status().isOk());
+
+	}
 
 }
