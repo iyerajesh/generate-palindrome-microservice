@@ -1,0 +1,28 @@
+#%RAML 0.8
+title: LeaveTrigger
+version: 1.0
+#baseUri: http://caexvd0209.up.dev.upc:8080/leaveTrigger/
+baseUri: https://mocksvc.mulesoft.com/mocks/49a619fc-f617-45ab-8db3-4ced7233a01b/leaveTrigger/
+mediaType:  application/json
+
+/triggers:
+  description: A collection of all possible triggers to submit leave requests or other types of trigger requests.
+  /leave/{claimID}:
+   description: The claim number for which the leave request trigger is being sent. 
+
+  post:
+    description: Create a new leave trigger request and drop the message into the leave trigger queue (UNUM.CLAIM.NOTIFICATION).
+            
+    responses:
+      201:
+        headers:
+          Location:
+            example: /triggers/leave/3252
+        body:
+            application/json:
+              schema: !include schemas/leavetrigger.json
+              example: !include examples/leavetrigger-example.json
+            
+            
+            
+     
